@@ -42,11 +42,8 @@ export function Privacidad() {
 
       <h2 className="font-display text-lg font-semibold text-primary">Borrar tus datos</h2>
       <p>
-        Si querés que se elimine tu cuenta y todo lo asociado a ella, escribime a{' '}
-        <a href="mailto:jt.carballal@gmail.com" className="text-primary underline">
-          jt.carballal@gmail.com
-        </a>
-        .
+        Si querés que se elimine tu cuenta y todo lo asociado a ella, pedíselo a quien te invitó
+        a la app.
       </p>
     </div>
   );
