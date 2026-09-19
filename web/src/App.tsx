@@ -18,6 +18,9 @@ const EstadisticasGrupo = lazy(() =>
   import('./pages/EstadisticasGrupo').then((m) => ({ default: m.EstadisticasGrupo })),
 );
 const Perfil = lazy(() => import('./pages/Perfil').then((m) => ({ default: m.Perfil })));
+const Privacidad = lazy(() =>
+  import('./pages/Privacidad').then((m) => ({ default: m.Privacidad })),
+);
 
 function Cargando() {
   return (
@@ -33,6 +36,7 @@ function App() {
       <Suspense fallback={<Cargando />}>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/privacidad" element={<Privacidad />} />
           <Route
             path="/"
             element={
