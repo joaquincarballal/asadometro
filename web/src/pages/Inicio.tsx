@@ -143,11 +143,8 @@ export function EventoCard({
   evento: Evento;
   esParticipante?: boolean;
 }) {
-  return (
-    <Link
-      to={`/eventos/${evento.id}`}
-      className="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm transition-transform active:scale-[0.98]"
-    >
+  const contenido = (
+    <>
       <span className="material-symbols-outlined text-secondary-container">
         local_fire_department
       </span>
@@ -164,10 +161,27 @@ export function EventoCard({
       {esParticipante ? (
         <span className="material-symbols-outlined text-on-surface-variant">chevron_right</span>
       ) : (
-        <span className="rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-on-secondary-container">
-          Unirme
+        <span className="material-symbols-outlined text-on-surface-variant" title="Necesitás una invitación para entrar">
+          lock
         </span>
       )}
+    </>
+  );
+
+  if (!esParticipante) {
+    return (
+      <div className="flex items-center gap-3 rounded-2xl bg-white p-4 opacity-60 shadow-sm">
+        {contenido}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      to={`/eventos/${evento.id}`}
+      className="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm transition-transform active:scale-[0.98]"
+    >
+      {contenido}
     </Link>
   );
 }

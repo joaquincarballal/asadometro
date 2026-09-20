@@ -43,7 +43,7 @@ export function EventoDetalle() {
         listarGastos(id),
       ]);
       if (user && !parts.some((p) => p.id === user.id)) {
-        navigate(`/eventos/${id}/unirse`, { replace: true });
+        setError('No sos participante de este asado. Pedile el link de invitación a quien lo organizó.');
         return;
       }
       setEvento(ev);
@@ -52,7 +52,7 @@ export function EventoDetalle() {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'No se pudo cargar el evento.');
     }
-  }, [id, user, navigate]);
+  }, [id, user]);
 
   useEffect(() => {
     if (authLoading) return;

@@ -61,9 +61,10 @@ export async function listarMisEventos(): Promise<Evento[]> {
   return data as Evento[];
 }
 
-/** Todos los asados del grupo, participes o no — para poder sumarse a uno del
- * que todavía no formás parte (evento_select ya es público para cualquier
- * autenticado, ver 0008_invitados.sql). */
+/** Todos los asados del grupo, participes o no — solo para descubrir que existen
+ * (nombre/fecha, evento_select es público, ver 0008_invitados.sql). Sumarse a uno
+ * del que no formás parte requiere el link de invitación del organizador, no se
+ * puede desde acá (ver EventoCard: las tarjetas ajenas no son clickeables). */
 export async function listarTodosLosEventos(): Promise<Evento[]> {
   const { data, error } = await supabase
     .from('evento')
